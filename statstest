@@ -1,0 +1,61 @@
+#! /usr/bin/env python3
+# John Cordes
+# Tests statslist program
+
+import unittest
+import statslist
+
+class Teststatslist(unittest.TestCase):
+
+    def test_append(self):
+        s = statslist.StatsList()
+        s.append(3)
+        self.assertEqual(1, s.count())
+
+    def test_mode_many(self):
+        
+        s = statslist.StatsList()
+
+        s.append(4)
+        s.append(4)
+        s.append(2)
+        s.append(2)
+        s.append(9)
+        self.assertEqual(2, s.mode())
+
+    def test_median_goodorder(self):
+        
+        s = statslist.StatsList()
+        s.append(8)
+        s.append(6)
+        s.append(2)
+        self.assertEqual(6, s.median())
+
+    
+    def test_med_badorder(self):
+        s = statslist.StatsList()
+        s.append(2)
+        s.append(9)
+        s.append(7)
+        self.assertEqual(7, s.median())
+
+    
+    def test_method_x(self):
+        s = statslist.StatsList()
+        s.append(6)
+        self.assertEqual(1, s.count())
+        self.assertEqual(6, s.mean())
+        self.assertEqual(6, s.median())
+        self.assertEqual(6, s.mode())
+
+    def test_method_y(self):
+        s = statslist.StatsList()
+        s.append(5)
+        s.append(6)
+        self.assertEqual(2, s.count())
+        self.assertEqual(5.5, s.mean())
+        self.assertEqual(5.5, s.median())
+        self.assertEqual(5, s.mode())
+
+if __name__ == '__main__':
+    unittest.main()
