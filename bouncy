@@ -1,0 +1,41 @@
+#! usr/bin/env python3
+# John Cordes
+# Bounces circle around the screen
+
+from graphics import *
+from time import sleep
+
+def main():
+    win = GraphWin("Bouncing Ball", 500, 500)
+    win.setCoords(-15,-10,10,12)
+    win.setBackground("black")
+
+    circle = Circle(Point(7,2), 1.0)
+    circle.draw(win)
+    circle.setFill("blue")
+
+    dx = 1
+    dy = 1
+
+    xTop = 10 - 1.0
+    xBottom = -15 + 1.0
+    yTop = 12 - 1.0
+    yBottom = -10 + 1.0
+
+    for i in range(1000):
+        center = circle.getCenter()
+        if center.getX() >= xTop:
+            dx = -1
+        if center.getX() <= xBottom:
+            dx = 1
+        if center.getY() >= yTop:
+            dy = -1
+        if center.getY() <= yBottom:
+            dy = 1
+    
+        circle.move(dx, dy)
+        sleep(.05)
+
+    win.close()
+if __name__ == "__main__":
+    main()
