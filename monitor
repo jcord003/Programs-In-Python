@@ -1,0 +1,27 @@
+#! /usr/bin/env python3
+#John Cordes
+#Draws picture of computer monitor
+
+from graphics import *
+
+win = GraphWin("Monitor", 500, 500)
+win.setCoords(-10,-10,10,10)
+win.setBackground("purple")
+
+oval = Oval(Point(-7,-7), Point(7,-5))
+oval.setFill("pink")
+oval.draw(win)
+
+rectangle = Rectangle(Point(-1,-5.5), Point(1,-2))
+rectangle.setFill("black")
+rectangle.draw(win)
+
+rectangle2 = Rectangle(Point(-9,-2), Point(9,9))
+rectangle2.setFill("white")
+rectangle2.setOutline("pink")
+rectangle2.setWidth(16)
+rectangle2.draw(win)
+
+button = Circle(Point(8.5,-2),.17)
+button.setFill("green")
+button.draw(win)
