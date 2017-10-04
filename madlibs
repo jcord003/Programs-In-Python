@@ -1,0 +1,10 @@
+#! /usr/bin/env python3 
+
+#John Cordes
+#takes verb, adjective, and noun from user and turns into a sentence
+
+
+noun = input("Enter a noun: ")
+verb = input("Enter a verb: ")
+adjective = input("Enter an adjective: ")
+print("The",adjective, noun, "hated to", verb, "on Saturday.")
