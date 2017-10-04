@@ -1,0 +1,20 @@
+#! /usr/bin/env python3
+#John Cordes
+#Finds price per square inch of pizza slices
+
+
+import math
+
+diameter = eval(input("Diameter: "))
+slices = eval(input("Slices: "))
+costperslice = eval(input("Cost per slice: "))
+
+
+radius = diameter / 2
+areapizza = math.pi * radius**2
+areaslice = areapizza / slices
+squareinchcost = costperslice / areaslice
+
+
+
+print("The cost per square inch is:",squareinchcost)
