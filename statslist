@@ -1,0 +1,70 @@
+#! /usr/bin/env python3
+# John Cordes
+# Defines stat list and finds statistics about it
+
+class StatsList:
+    def __init__(self):
+        self.list1 = []
+        
+
+    def __repr__(self):
+        return str(self.list1)
+        
+    def append(self, number):
+        self.number = number
+        return self.list1.append(number)
+
+    def count(self):
+        return len(self.list1)
+            
+    def mean(self):
+        self.mean = sum(self.list1) / len(self.list1)
+        return self.mean
+        
+    def median(self):
+        self.list1.sort()
+        if len(self.list1) %2 == 1:
+            return self.list1[((len(self.list1)+1)//2)-1]
+        else:
+            return float(sum(self.list1[(len(self.list1)//2)-1:(len(self.list1)//2)+1]))/2.0
+
+
+    def mode(self):
+        self.list1.sort()
+        self.d = {}
+        self.mode = 0
+        self.count = 0
+
+        for i in self.list1:
+            if i in self.d:
+                self.d[i] += 1
+            else:
+                self.d[i] = 1
+
+            if self.d[i] > self.count:
+                self.mode = i
+                self.count = self.d[i]
+
+        return self.mode
+            
+        
+        
+def main():
+
+    list1 = StatsList()
+
+    list1.append(2)
+    list1.append(6)
+    list1.append(3)
+    list1.append(7)
+    list1.append(9)
+    list1.append(2)
+
+    print("Numbers in List:", list1)
+    print("Count:", list1.count())
+    print("Mean:", list1.mean())
+    print("Median:", list1.median())
+    print("Mode:", list1.mode())
+
+if __name__ == "__main__":
+    main()
