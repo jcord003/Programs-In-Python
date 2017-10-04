@@ -1,0 +1,30 @@
+#! /usr/bin/env python3
+
+# John Cordes
+# Creates dots where use clicks and draws rectangle
+
+from graphics import *
+
+def getPoint(win):
+    
+    p1 = win.getMouse()
+    p1.draw(win)
+    output = (p1)
+    return output
+
+    
+
+def main():
+    win = GraphWin("Click two points", 500, 500)
+
+    point1 = getPoint(win)
+    point2 = getPoint(win)
+
+    rect = Rectangle(point1, point2)
+    rect.draw(win)
+
+    win.getMouse()
+    win.close()
+
+
+main()
