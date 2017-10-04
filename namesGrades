@@ -1,0 +1,16 @@
+#! /usr/bin/env python3
+#John Cordes
+#Creates username and converts number to letter grade
+
+grades = ["F", "F", "D", "C", "B", "A"]
+file1 = open("grades.txt")
+
+
+for i in range(5):
+    line = file1.readline()
+    fname, lname, grade = line.split()
+    uname = (fname[:1]+lname[:5])
+    numgrade = int(grade)
+    print(uname[:-1].lower()+ "001" + " " + grades[numgrade])
+
+file1.close()
