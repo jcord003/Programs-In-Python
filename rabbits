@@ -1,0 +1,20 @@
+#! /usr/bin/env python3
+
+#John Cordes
+#Calculates number of rabbits produced if each pair of rabbits
+#create a rabbit once a month.
+
+
+
+rabbits = eval(input("Number rabbits: "))
+months = eval(input("Number months: "))
+count = 0
+
+for i in range(1, months + 1):
+    rabbits = ((rabbits // 2) + (rabbits))
+    count = count + 1
+
+    if months > 1:
+        print("After", count, "months, there will be", rabbits, "rabbits")
+    else:
+        print("After", count, "month, there will be", rabbits, "rabbit")
