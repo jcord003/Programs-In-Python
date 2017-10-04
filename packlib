@@ -1,0 +1,28 @@
+#! /usr/bin/env python3
+# John Cordes
+# Places items in bag until it would be too much
+
+items = [5,10,3,7,8,3]
+maxweight = 20
+
+def pack(items, maxweight):
+    Sum = 0
+    count = 0
+    for i in items:
+
+        if Sum + i <= maxweight:
+            Sum = Sum + i
+            
+            count = count + 1
+            
+        else:
+            numbers = print("Numbers in bag are: ",
+            items[0:count], "which sum", Sum)
+            break
+            
+    return(count, maxweight)
+            
+    
+itemCount = pack(items, maxweight)
+
+print("Item count should be 3: ", itemCount)
