@@ -1,0 +1,56 @@
+#! /usr/bin/env python3
+# John Cordes
+# Plays 500 games of craps
+
+from random import *
+ 
+def dice():
+    return randrange(1, 7) + randrange(1, 7)
+
+def sevenFirst(x, roll_1_holder):
+    return x == 7 or x == roll_1_holder
+ 
+def firstRoll():
+    x = dice()
+    if x == 7 or x == 11:
+        status = 'win'
+    elif x == 2 or x == 3 or x == 12:
+        status = 'lose'
+    else:
+        status = x
+    return status
+
+def nextRoll(roll_1):
+    x = 0
+    while not sevenFirst(x, roll_1):
+        x = dice()
+        if x == roll_1:
+            status = 'win'
+        elif x == 7:
+            status = 'lose'
+    return status
+
+def crapsGames(games):
+    wins = 0
+    for i in range(games):
+        roll = firstRoll()
+        if roll == 'win':
+            wins = wins + 1
+        elif (type(roll)) == int:
+            final = nextRoll(roll)
+            if final == 'win':
+                wins = wins + 1
+    return wins
+
+
+def gamesStats(wins, games):
+    print('Total Games Won:', wins)
+    print("Odds of winning: ", wins/games)
+
+
+def main():
+    x = crapsGames(500)
+    gamesStats(x, 500)
+ 
+if __name__ == '__main__':
+    main()
