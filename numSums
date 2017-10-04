@@ -1,0 +1,25 @@
+#! /usr/bin/env python3
+#John Cordes
+#Collects five numbers and adds them
+
+
+
+print("Enter five numbers: ")    
+
+numberholder = []
+for i in range(5):
+    num = eval(input("Number: "))
+    numberholder.append(num)
+    
+print()
+print('Your Numbers: ')
+print(numberholder)
+
+
+total = 0
+for number in numberholder:
+    print(number)
+    total = total + number
+
+
+print("The sum of the numbers is: ", total)
