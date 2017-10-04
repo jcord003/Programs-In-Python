@@ -1,0 +1,35 @@
+#! /usr/bin/env python3
+
+from graphics import *
+from math import *
+
+radius = eval(input("What is the radius? "))
+yintercept = eval(input("What is the y-intercept? "))
+
+win = GraphWin("Circle", 500, 500)
+win.setCoords(-10,-10,10,10)
+
+circle = Circle(Point(0,0), radius)
+circle.draw(win)
+
+line = Line(Point(-10,yintercept), Point(10,yintercept))
+line.draw(win)
+
+x = sqrt(radius**2 - yintercept**2)
+x2 = - (sqrt(radius**2 - yintercept**2))
+
+
+one = Circle(Point(x, yintercept),.1)
+one.setFill("red")
+one.draw(win)
+
+two = Circle(Point(x2, yintercept),.1)
+two.setFill("red")
+two.draw(win)
+
+print("The line and the circle intersect at the following points: ")
+print("x = ",x2)
+print("x = ",x)
+
+win.getMouse()
+win.close()
