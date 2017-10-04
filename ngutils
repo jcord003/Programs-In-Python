@@ -1,0 +1,34 @@
+#! /usr/bin/env python3
+
+# John Cordes
+# Creates function to create username and a function to calculate grade
+
+def username(first, last):
+    uname = (first[:1].lower() +last[:4].lower() + "001")
+    return uname
+
+
+def convertGrade(grade):
+    myGrades = ["F", "F", "D", "C", "B", "A"]
+    
+    grade = myGrades[grade]
+    return grade
+
+
+
+def main():
+    uname = username("Jane", "Smith")
+    # jsmit001
+    print(uname)
+
+    # fbar001
+    print(username("Frank", "Bar"))
+
+
+    # F
+    print(convertGrade(0))
+
+    # A
+    print(convertGrade(5))
+
+main()
